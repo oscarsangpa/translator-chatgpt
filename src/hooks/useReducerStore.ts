@@ -5,6 +5,7 @@ import {
   FromLanguage,
   Language,
 } from "../types";
+import { AUTO_LANGUAGE } from "../constants";
 
 const initialState: ReducerState = {
   fromLanguage: "auto",
@@ -18,6 +19,8 @@ function reducer(state: ReducerState, action: ReducerAction) {
   const { type } = action;
 
   if (type === "INTERCHANGE_LANGUAGES") {
+    if (state.fromLanguage === AUTO_LANGUAGE) return state;
+
     return {
       ...state,
       fromLanguage: state.toLanguage,

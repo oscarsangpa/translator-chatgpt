@@ -5,6 +5,7 @@ import { LanguageSelector } from "./components/LanguageSelector";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./App.css";
+import { SectionType } from "./types.d";
 
 function App() {
   const {
@@ -21,7 +22,7 @@ function App() {
       <Row>
         <Col>
           <LanguageSelector
-            type="from"
+            type={SectionType.From}
             value={fromLanguage}
             onChange={setFromLanguage}
           />
@@ -38,7 +39,7 @@ function App() {
         </Col>
         <Col>
           <LanguageSelector
-            type="to"
+            type={SectionType.To}
             value={toLanguage}
             onChange={setToLanguage}
           />

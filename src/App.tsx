@@ -3,7 +3,7 @@ import { AUTO_LANGUAGE } from "./constants";
 import { ArrowsIcon } from "./components/Icons";
 import { LanguageSelector } from "./components/LanguageSelector";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Form, Stack } from "react-bootstrap";
 import "./App.css";
 import { SectionType } from "./types.d";
 
@@ -21,14 +21,21 @@ function App() {
       <h1>Translator</h1>
       <Row>
         <Col>
-          <LanguageSelector
-            type={SectionType.From}
-            value={fromLanguage}
-            onChange={setFromLanguage}
-          />
-          {fromLanguage}
+          <Stack gap={2}>
+            <LanguageSelector
+              type={SectionType.From}
+              value={fromLanguage}
+              onChange={setFromLanguage}
+            />
+            <Form.Control
+              as="textarea"
+              placeholder="Insert text"
+              autoFocus
+              style={{ height: "150px" }}
+            />
+          </Stack>
         </Col>
-        <Col>
+        <Col xs="auto">
           <Button
             variant="link"
             disabled={fromLanguage === AUTO_LANGUAGE}
@@ -38,12 +45,18 @@ function App() {
           </Button>
         </Col>
         <Col>
-          <LanguageSelector
-            type={SectionType.To}
-            value={toLanguage}
-            onChange={setToLanguage}
-          />
-          {toLanguage}
+          <Stack gap={2}>
+            <LanguageSelector
+              type={SectionType.To}
+              value={toLanguage}
+              onChange={setToLanguage}
+            />
+            <Form.Control
+              as="textarea"
+              placeholder="Translation"
+              style={{ height: "150px" }}
+            />
+          </Stack>
         </Col>
       </Row>
     </Container>

@@ -13,6 +13,7 @@ export const Translator = () => {
     toLanguage,
     fromText,
     result,
+    loading,
     interchangeLanguages,
     setToLanguage,
     setFromText,
@@ -32,7 +33,6 @@ export const Translator = () => {
             />
             <TextArea
               type={SectionType.From}
-              placeholder="Insert text"
               value={fromText}
               onChange={setFromText}
             />
@@ -56,7 +56,7 @@ export const Translator = () => {
             />
             <TextArea
               type={SectionType.To}
-              placeholder="Translation"
+              loading={loading}
               value={result}
               onChange={setResult}
             />

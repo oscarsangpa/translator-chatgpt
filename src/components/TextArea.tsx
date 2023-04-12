@@ -37,6 +37,7 @@ const TextArea = ({ type, loading, value, onChange }: TextAreaProps) => {
     <Form.Control
       as="textarea"
       autoFocus={type === SectionType.From}
+      disabled={type === SectionType.To}
       placeholder={getPlaceholder({ type, loading })}
       style={styles}
       value={value}
